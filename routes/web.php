@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\GamesController;
 use App\Http\Controllers\GenresController;
+use App\Http\Controllers\ReservationsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,3 +18,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource("games",GamesController::class);
 Route::resource("genres",GenresController::class);
+Route::resource("reservations",ReservationsController::class);

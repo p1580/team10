@@ -63,7 +63,7 @@ class GamesTableSeeder extends Seeder
             $publisher = $this->generateRandomPublisher();
             $random_datetime = Carbon::now()->subMinutes(rand(1,55));
             $date = Carbon::now()->subYears(rand(48,60))->subMonths(rand(0,12))->subRealDays(rand(0,31));
-            DB::table('games')->insert([
+            DB::table('Games')->insert([
                 'name' => $name,
                 'gid' => rand(1, 23),
                 'platform' => $platform,

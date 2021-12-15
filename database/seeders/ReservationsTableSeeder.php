@@ -6,7 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class ReservationTableSeeder extends Seeder
+class ReservationsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +14,7 @@ class ReservationTableSeeder extends Seeder
      * @return void
      */
     public function generateRandomString($length = 10) {
-        $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $characters = '1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
         $randomString = '';
         for ($i = 0; $i < $length; $i++) {
@@ -32,44 +32,29 @@ class ReservationTableSeeder extends Seeder
         $name = $first_name . " ". $last_name;
         return $name;
     }
-
-    public function generateRandomNationality() {
-        $positions = ['STEAM', 'SWITCH', 'PS4', 'PS5', 'WINDOWS'];
+    public function generatecardid() {
+        $name = $this->generateRandomString(rand(7, 15));
+        $name = strtolower($name);
+        $name = ucfirst($name);
+        $name = $name ;
+        return $name;
+    }
+    public function generatecid() {
+        $positions = ['F309', 'F313', 'F314', 'F308'];
         return $positions[rand(0, count($positions)-1)];
 
-    }
-    public function generateRandomDeveloper() {
-        $name = $this->generateRandomString(rand(2, 15));
-        $name = strtolower($name);
-        $name = ucfirst($name);
-        $name = $name ;
-        return $name;
-    }
-    public function generateRandomPublisher() {
-        $name = $this->generateRandomString(rand(2, 15));
-        $name = strtolower($name);
-        $name = ucfirst($name);
-        $name = $name ;
-        return $name;
     }
 
     public function run()
     {
-        for ($i=0; $i<130; $i++)
+        for ($i=0; $i<10; $i++)
         {
-            $name = $this->generateRandomName();
-            $developer=$this->generateRandomDeveloper();
-            $platform = $this->generateRandomNationality();
-            $publisher = $this->generateRandomPublisher();
+            $card_id = $this->generatecardid();
+            $cid = $this->generatecid();
             $random_datetime = Carbon::now()->subMinutes(rand(1,55));
-            $date = Carbon::now()->subYears(rand(48,60))->subMonths(rand(0,12))->subRealDays(rand(0,31));
-            DB::table('games')->insert([
-                'name' => $name,
-                'gid' => rand(1, 23),
-                'platform' => $platform,
-                'releasedate' => $date,
-                'publisher' =>$publisher,
-                'developer'=>$developer,
+            DB::table('reservations')->insert([
+                'card_id' => $card_id,
+                'cid' => rand(1, 4),
                 'created_at' => $random_datetime,
                 'updated_at' => $random_datetime
             ]);

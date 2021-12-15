@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\genre;
+use App\Models\reservation;
 use Illuminate\Http\Request;
 
-class GenresController extends Controller
+class ReservationsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,9 @@ class GenresController extends Controller
      */
     public function index()
     {
-        $genres = genre::all();
-        return view('genres.index')->with(['genres'=>$genres]);
+        $reservations = reservation::all();
+        return view('reservations.index')->with(['reservations'=>$reservations]);
+
     }
 
     /**
@@ -47,8 +48,8 @@ class GenresController extends Controller
      */
     public function show($id)
     {
-        $genres=Genre::findOrFail($id);
-        return view('genres.show') -> with(['genres'=>$genres]);
+        $reservations=reservation::findOrFail($id);
+        return view('reservations.show') -> with(['reservations'=>$reservations]);
     }
 
     /**
@@ -59,8 +60,8 @@ class GenresController extends Controller
      */
     public function edit($id)
     {
-        $genres=Genre::findOrFail($id);
-        return view('genres.edit') -> with(['genres'=>$genres]);
+        $reservations=reservation::findOrFail($id);
+        return view('reservations.edit') -> with(['reservations'=>$reservations]);
     }
 
     /**
@@ -72,12 +73,15 @@ class GenresController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-        $genres=Genre::findOrFail($id);
-        $genres->name = $request->input('name');
-        $genres->save();
+        $reservations=reservation::findOrFail($id);
+        $reservations->name = $request->input('date');
+        $reservations->platform = $request->input('cid');
+        $reservations->developer = $request->input('start_at');
+        $reservations->publisher = $request->input('end_of');
+        $reservations->gid = $request->input('memo');
+        $reservations->save();
 
-        return redirect('genres');
+        return redirect('reservations');
     }
 
     /**
