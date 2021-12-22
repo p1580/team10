@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\reservation;
 use Illuminate\Http\Request;
+use function Illuminate\Events\queueable;
 
 class ReservationsController extends Controller
 {
@@ -15,6 +16,7 @@ class ReservationsController extends Controller
     public function index()
     {
         $reservations = reservation::all();
+        $reservations = reservation::all()->sortByDesc('cid');
         return view('reservations.index')->with(['reservations'=>$reservations]);
 
     }
@@ -26,7 +28,7 @@ class ReservationsController extends Controller
      */
     public function create()
     {
-        //
+        return view('reservations.create');
     }
 
     /**
@@ -37,7 +39,24 @@ class ReservationsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $date = $request->input('date');
+        $card_id = $request->input('card_id');
+        $cid = $request->input('cid');
+        $start_at = $request->input('start_at');
+        $end_of = $request->input('end_of');
+        $memo = $request->input('memo');
+
+        Reservation::create(
+            [
+                'date' => $date,
+                'card_id' => $card_id,
+                'cid' => $cid,
+                'start_at' => $start_at,
+                'end_of' => $end_of,
+                'memo' => $memo,
+            ]
+        );
+        return redirect('reservations');
     }
 
     /**
@@ -74,7 +93,7 @@ class ReservationsController extends Controller
     public function update(Request $request, $id)
     {
         $reservations=reservation::findOrFail($id);
-        $reservations->name = $request->input('date');
+        $reservations->name = $request->input('name');
         $reservations->platform = $request->input('cid');
         $reservations->developer = $request->input('start_at');
         $reservations->publisher = $request->input('end_of');
@@ -92,6 +111,14 @@ class ReservationsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $reservations=reservation::findOrFail($id);
+        $reservations->delete();
+        return redirect('reservations');
+    }
+
+    public function cid()
+    {
+        $reservations = reservation::cid()->get();
+        return view('reservations.index', ['reservations' => $reservations]);
     }
 }

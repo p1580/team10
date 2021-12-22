@@ -54,7 +54,7 @@ class ReservationsTableSeeder extends Seeder
             $random_datetime = Carbon::now()->subMinutes(rand(1,55));
             DB::table('reservations')->insert([
                 'card_id' => $card_id,
-                'cid' => rand(1, 4),
+                'cid' => $cid,
                 'created_at' => $random_datetime,
                 'updated_at' => $random_datetime
             ]);

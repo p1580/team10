@@ -17,7 +17,7 @@ class CreateReservationsTable extends Migration
             $table->id();
             $table->string('date',191)->default('2021-11-21')->comment('日期');
             $table->string('card_id')->comment('學生證卡號');
-            $table->Integer('cid')->comment('教室編號');
+            $table->string('cid')->comment('教室編號');
             $table->string('start_at')->default('09:00')->comment('借用時間');
             $table->string('end_of')->default('12:00')->comment('結束時間');
             $table->date('memo')->nullable()->comment('備註');
