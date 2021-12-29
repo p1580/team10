@@ -93,11 +93,11 @@ class ReservationsController extends Controller
     public function update(Request $request, $id)
     {
         $reservations=reservation::findOrFail($id);
-        $reservations->name = $request->input('name');
-        $reservations->platform = $request->input('cid');
-        $reservations->developer = $request->input('start_at');
-        $reservations->publisher = $request->input('end_of');
-        $reservations->gid = $request->input('memo');
+        $reservations->date = $request->input('date');
+        $reservations->cid = $request->input('cid');
+        $reservations->start_at = $request->input('start_at');
+        $reservations->end_of = $request->input('end_of');
+        $reservations->memo = $request->input('memo');
         $reservations->save();
 
         return redirect('reservations');

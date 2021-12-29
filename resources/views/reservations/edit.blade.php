@@ -15,8 +15,33 @@
         <td>{{$reservations->id}}</td>
     </tr>
     <tr>
-        <th>日期</th>
-        <td><input type="text" name="name" value="{{$reservations->name}}"/></td>
+        <td>日期</td>
+        <td><input type="date" id="date" name="date" value="{{ $reservations->date }}"></td>
+    </tr>
+    <tr>
+        <td>學生證卡號</td>
+        <td>{{$reservations->card_id}}</td>
+    </tr>
+    <tr>
+        <td>教室編號</td>
+        <td><select name="cid" id="cid" value="{{ $reservations->cid }}">
+                <option value="F308">F308</option>
+                <option value="F309">F309</option>
+                <option value="F313">F313</option>
+                <option value="F314">F314</option>
+            </select>
+        </td>
+    <tr>
+        <td>借用時間</td>
+        <td><input type="time" id="start_at" name="start_at" value="{{ $reservations->start_at }}"></td>
+    </tr>
+    <tr>
+        <td>結束時間</td>
+        <td><input type="time" id="end_of" name="end_of" value="{{ $reservations->end_of }}"></td>
+    </tr>
+    <tr>
+        <td>備註</td>
+        <td><input type="text" name="memo" value="{{ $reservations->memo }}"></td>
     </tr>
 </table>
     <input type ="submit" value="修改"/><input type="reset" value="重新輸入"/>

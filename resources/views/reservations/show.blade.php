@@ -5,6 +5,7 @@
 </head>
 <body>
 <h1>顯示單一類型資料</h1>
+<a href="{{ route('reservations.index') }}">所有借教室名單</a>
 <table border="1">
     <tr>
         <th>編號</th>

@@ -20,7 +20,7 @@ class CreateReservationsTable extends Migration
             $table->string('cid')->comment('教室編號');
             $table->string('start_at')->default('09:00')->comment('借用時間');
             $table->string('end_of')->default('12:00')->comment('結束時間');
-            $table->date('memo')->nullable()->comment('備註');
+            $table->string('memo')->nullable()->comment('備註');
             $table->timestamps();
         });
     }
