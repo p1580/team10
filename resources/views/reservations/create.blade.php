@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>顯示借教室的新增表單</title>
-</head>
+    $zero1=date("Y-m-d h:i:s")
 <body>
 <h1>顯示借教室的新增表單</h1>
 <a href="{{ route('reservations.index') }}">所有借教室名單</a>
@@ -31,8 +31,7 @@
         <tr>
             <td>借用時間</td>
             <td><input type="time" id="start_at" name="start_at"></td>
-            date(時間格式, 要轉換的時間)
-        </tr>
+            date(時間格式, 要轉換的時間)          </tr>
         <tr>
             <td>結束時間</td>
             <td><input type="time" id="end_of" name="end_of"></td>
