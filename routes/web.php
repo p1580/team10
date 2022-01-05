@@ -3,6 +3,7 @@
 use App\Http\Controllers\GamesController;
 use App\Http\Controllers\GenresController;
 use App\Http\Controllers\ReservationsController;
+use App\Http\Controllers\RoomsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,4 @@ Route::get('reservations/cid', [ReservationsController::class, 'cid'])->name('re
 Route::resource("games",GamesController::class);
 Route::resource("genres",GenresController::class);
 Route::resource("reservations",ReservationsController::class);
+Route::resource("rooms",RoomsController::class);

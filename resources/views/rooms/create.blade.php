@@ -1,11 +1,11 @@
-@extends('app')
-
-@section('title', '新增教室表單')
-
-@section('reservation_contents')
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>顯示借教室的新增表單</title>
+<body>
 <h1>顯示借教室的新增表單</h1>
-<a href="{{ route('reservations.index') }}">所有借教室名單</a>
-<form method="post" action="/reservations">
+<a href="{{ route('rooms.index') }}">所有借教室名單</a>
+<form method="post" action="/rooms">
     @csrf
     <table border="1">
         <tr>
@@ -19,11 +19,9 @@
         <tr>
             <td>教室編號</td>
             <td>
-                <select name="room_id" required>
-                    @foreach($rooms as $room)
-                        <option value="{{ $room->id }}">{{ $room->room_id }}</option>
-                    @endforeach
-                </select>
+                @foreach($rooms as $room)
+                    <option value="{{ $room->id }}">{{ $room ->name }}</option>
+                @endforeach
             </td>
         </tr>
         <tr>
@@ -43,4 +41,3 @@
 </form>
 </body>
 </html>
-@endsection

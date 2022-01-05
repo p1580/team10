@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\reservation;
+use App\Models\room;
 use Illuminate\Http\Request;
 use function Illuminate\Events\queueable;
 
@@ -28,7 +29,8 @@ class ReservationsController extends Controller
      */
     public function create()
     {
-        return view('reservations.create');
+        $rooms = room::all()->sortBy('id');
+        return view('reservations.create')->with(['rooms'=>$rooms]);
     }
 
     /**

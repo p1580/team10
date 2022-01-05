@@ -1,13 +1,9 @@
-<html>
-<head>
-    <meta charset="UTF-8"/>
-    <title>顯示所有借教室的表單</title>
-</head>
-<body>
+@extends('app')
+
+@section('title', '新增教室表單')
+
+@section('reservation_contents')
 <h1>顯示所有借教室的表單</h1>
-<a href="{{ route('reservations.index') }}">所有借教室名單</a>
-<a href="{{ route('reservations.create') }}">新增借教室名單</a>
-<a href="{{ route('reservations.cid') }}">F309借用狀況</a>
 <table border="1">
     <tr>
         <th>編號</th>
@@ -48,5 +44,4 @@
         </tr>
     @endforeach
 </table>
-</body>
-</html>
+@endsection
