@@ -40,8 +40,8 @@ class ReservationsTableSeeder extends Seeder
         return $name;
     }
     public function generatecid() {
-        $positions = ['F309', 'F313', 'F314', 'F308'];
-        return $positions[rand(0, count($positions)-1)];
+        $positions = rand(1, 4);
+        return $positions;
 
     }
 

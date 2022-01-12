@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function() {
+    return redirect('reservations');
+});
+
 Route::get('reservations/cid', [ReservationsController::class, 'cid'])->name('reservations.cid');
 Route::resource("reservations",ReservationsController::class);
 Route::resource("rooms",RoomsController::class);

@@ -20,7 +20,7 @@
                 <tr>
                     <td>教室編號</td>
                     <td>
-                        <select name="room_id" required>
+                        <select name="cid" required>
                             @foreach($rooms as $room)
                                 <option value="{{ $room->id }}">{{ $room->room_id }}</option>
                             @endforeach

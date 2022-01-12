@@ -18,7 +18,17 @@ class reservation extends Model
 
     public function scopeCid($query)
     {
-        $query->where('cid', '=', 'F309')
+        $query->where('cid', '=', '1')
             ->orderBy('cid');
+    }
+
+    public function scopeAll($query)
+    {
+        $query->select('cid')->groupBy('cid');
+    }
+
+    public function rooms()
+    {
+        return $this->belongsTo('App\Models\room', 'cid', 'id');
     }
 }

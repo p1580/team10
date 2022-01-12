@@ -38,11 +38,11 @@ class RoomsController extends Controller
      */
     public function store(Request $request)
     {
-        $room_id = $request->input('room_id');
+        $rooms_id = $request->input('room_id');
 
         room::create(
             [
-                'room_id' => $room_id,
+                'room_id' => $rooms_id,
             ]
         );
         return redirect('rooms');
@@ -96,5 +96,53 @@ class RoomsController extends Controller
         $rooms=room::findOrFail($id);
         $rooms->delete();
         return redirect('rooms');
+    }
+
+    public function api_rooms()
+    {
+        return room::all();
+    }
+
+    public function api_update(Request $request)
+    {
+        $rooms = room::find($request->input('id'));
+        if ($rooms == null)
+        {
+            return response()->json([
+                'status' => 0,
+            ]);
+        }
+
+        $rooms->name = $request->input('room_id');
+        if ($rooms->save())
+        {
+            return response()->json([
+                'status' => 1,
+            ]);
+        } else {
+            return response()->json([
+                'status' => 0,
+            ]);
+        }
+    }
+
+    public function api_delete(Request $request)
+    {
+        $rooms = room::find($request->input('id'));
+
+        if ($rooms == null)
+        {
+            return response()->json([
+                'status' => 0,
+            ]);
+        }
+
+        if ($rooms->delete())
+        {
+            return response()->json([
+                'status' => 1,
+            ]);
+        }
+
     }
 }

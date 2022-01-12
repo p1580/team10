@@ -9,11 +9,7 @@
     <a href="{{ route('reservations.create') }}">新增借教室名單</a><br>
     <img src="https://m1.ntsu.edu.tw/Preview/images/VC.jpg" width="50" >
     <a href="{{ route('rooms.index') }}">教室名單</a><br>
-
     <a href="{{ route('reservations.cid') }}">F309借用狀況</a>
     </body>
 </DIV>
 <script src="script.js" async></script>
-
-A
-

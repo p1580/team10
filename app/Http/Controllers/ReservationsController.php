@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\reservation;
-use App\Models\room;
 use Illuminate\Http\Request;
 use function Illuminate\Events\queueable;
 
@@ -16,7 +15,6 @@ class ReservationsController extends Controller
      */
     public function index()
     {
-        $reservations = reservation::all();
         $reservations = reservation::all()->sortByDesc('cid');
         return view('reservations.index')->with(['reservations'=>$reservations]);
 
@@ -29,7 +27,7 @@ class ReservationsController extends Controller
      */
     public function create()
     {
-        $rooms = room::all()->sortBy('id');
+        $rooms = reservation::all()->sortBy('id');
         return view('reservations.create')->with(['rooms'=>$rooms]);
     }
 
@@ -122,5 +120,56 @@ class ReservationsController extends Controller
     {
         $reservations = reservation::cid()->get();
         return view('reservations.index', ['reservations' => $reservations]);
+    }
+
+    public function api_reservations()
+    {
+        return reservation::all();
+    }
+
+    public function api_update(Request $request, $reservations)
+    {
+        $reservations = reservation::find($request->input('id'));
+        if ($reservations == null)
+        {
+            return response()->json([
+                'status' => 0,
+            ]);
+        }
+        $reservations->date = $request->input('date');
+        $reservations->cid = $request->input('cid');
+        $reservations->start_at = $request->input('start_at');
+        $reservations->end_of = $request->input('end_of');
+        $reservations->memo = $request->input('memo');
+
+        if ($reservations->save())
+        {
+            return response()->json([
+                'status' => 1,
+            ]);
+        } else {
+            return response()->json([
+                'status' => 0,
+            ]);
+        }
+    }
+
+    public function api_delete(Request $request)
+    {
+        $reservations = reservation::find($request->input('id'));
+
+        if ($reservations == null)
+        {
+            return response()->json([
+                'status' => 0,
+            ]);
+        }
+
+        if ($reservations->delete())
+        {
+            return response()->json([
+                'status' => 1,
+            ]);
+        }
     }
 }

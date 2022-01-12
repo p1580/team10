@@ -13,10 +13,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(GamesTableSeeder::class);
-        $this->call(GenresTableSeeder::class);
-        $this->call(RoomsTableSeeder::class);
         $this->call(ReservationsTableSeeder::class);
+        $this->call(RoomsTableSeeder::class);
         // \App\Models\User::factory(10)->create();
     }
 }

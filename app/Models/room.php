@@ -8,12 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class room extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'room_id',
     ];
 
-    public function scopeCid($query)
+    public function scopeAll($query)
     {
+        $query->select('room_id')->groupBy('room_id');
+    }
 
+    public function reservations()
+    {
+        return $this->hasMany('App\Models\reservation', 'room_id');
     }
 }
