@@ -17,8 +17,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('reservations/cid', [ReservationsController::class, 'cid'])->name('reservations.cid');
-
-Route::resource("games",GamesController::class);
-Route::resource("genres",GenresController::class);
 Route::resource("reservations",ReservationsController::class);
 Route::resource("rooms",RoomsController::class);

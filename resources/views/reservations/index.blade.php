@@ -1,20 +1,22 @@
 @extends('app')
 
 @section('title', '新增教室表單')
-
+<title>借教室表單</title>
 @section('reservation_contents')
-<h1>顯示所有借教室的表單</h1>
-<table border="1">
-    <tr>
-        <th>編號</th>
-        <th>日期</th>
-        <th>學生證卡號</th>
-        <th>教室編號</th>
-        <th>借用時間</th>
-        <th>結束時間</th>
-        <th>操作1</th>
-        <th>操作2</th>
-        <th>操作3</th>
+    <DIV style="text-align:center;">
+        <h1>顯示借教室的表單</h1>
+        <a href="{{ route('reservations.index') }}">所有借教室名單</a>
+        <table align="center" bgcolor=#fff5ee border="1">
+            <div style="text-align:center;"><tr style="background-color:greenyellow;">
+                    <th>編號</th>
+                    <th>日期</th>
+                    <th>學生證卡號</th>
+                    <th>教室編號</th>
+                    <th>借用時間</th>
+                    <th>結束時間</th>
+                    <th>操作1</th>
+                    <th>操作2</th>
+                    <th>操作3</th>
     </tr>
     @foreach($reservations as $reservations)
         <tr>
@@ -41,7 +43,10 @@
                 <input type="submit" value="刪除"/>
             </form>
             </td>
-        </tr>
+
+      </tr>
     @endforeach
-</table>
+        </table>
+    </DIV>
+
 @endsection

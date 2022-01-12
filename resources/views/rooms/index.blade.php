@@ -1,43 +1,42 @@
-<html>
-<head>
-    <meta charset="UTF-8"/>
-    <title>所有教室的表單</title>
-</head>
-<body>
-<h1>所有教室的表單</h1>
-<a href="{{ route('rooms.index') }}">教室名單</a>
-<a href="{{ route('rooms.create')}}">新增借教室名單</a>
-<table border="1">
-    <tr>
-        <th>編號</th>
-        <th>教室編號</th>
-        <th>操作1</th>
-        <th>操作2</th>
-        <th>操作3</th>
-    </tr>
-    @foreach($rooms as $rooms)
-        <tr>
-            <td>{{$rooms->id}}</td>
-            <td>{{$rooms->room_id}}</td>
-            <td>
-                <a href="rooms/{{$rooms->id}}">
-                    詳細
-                </a>
-            </td>
-            <td>
-                <a href="rooms/{{$rooms->id}}/edit">
-                    修改
-                </a>
-            </td>
-            <td>
-                <form method="post" action="rooms/{{$rooms->id}}">
-                @csrf <!-- CSRF = Cross-Site Request Forgery-->
-                @method("delete")
-                <input type="submit" value="刪除"/>
-            </form>
-            </td>
-        </tr>
-    @endforeach
-</table>
-</body>
-</html>
+
+<title>所有教室的表單</title>
+<DIV style="text-align:center;">
+    <h1>所有教室的表單</h1>
+    <a href="{{ route('reservations.index') }}">所有借教室名單</a>
+    <a href="{{ route('rooms.create')}}">新增借教室名單</a>
+    <table align="center" bgcolor=#fff5ee border="1">
+        <div style="text-align:center;"><tr style="background-color:greenyellow;">
+            <tr>
+                <th>編號</th>
+                <th>教室編號</th>
+                <th>操作1</th>
+                <th>操作2</th>
+                <th>操作3</th>
+            </tr>
+            @foreach($rooms as $rooms)
+                <tr>
+                    <td>{{$rooms->id}}</td>
+                    <td>{{$rooms->room_id}}</td>
+                    <td>
+                        <a href="rooms/{{$rooms->id}}">
+                            詳細
+                        </a>
+                    </td>
+                    <td>
+                        <a href="rooms/{{$rooms->id}}/edit">
+                            修改
+                        </a>
+                    </td>
+                    <td>
+                        <form method="post" action="rooms/{{$rooms->id}}">
+                        @csrf <!-- CSRF = Cross-Site Request Forgery-->
+                            @method("delete")
+                            <input type="submit" value="刪除"/>
+                        </form>
+                    </td>
+                </tr>
+        @endforeach
+    </table>
+    </body>
+    </html>
+</DIV>
