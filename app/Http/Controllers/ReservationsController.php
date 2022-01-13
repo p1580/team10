@@ -127,7 +127,7 @@ class ReservationsController extends Controller
         return reservation::all();
     }
 
-    public function api_update(Request $request, $reservations)
+    public function api_update(Request $request)
     {
         $reservations = reservation::find($request->input('id'));
         if ($reservations == null)
