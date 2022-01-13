@@ -27,7 +27,7 @@ class reservation extends Model
         $query->select('cid')->groupBy('cid');
     }
 
-    public function rooms()
+    public function room()
     {
         return $this->belongsTo('App\Models\room', 'cid', 'id');
     }

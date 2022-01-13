@@ -20,6 +20,6 @@ class room extends Model
 
     public function reservations()
     {
-        return $this->hasMany('App\Models\reservation', 'room_id');
+        return $this->hasMany('App\Models\reservation', 'cid');
     }
 }

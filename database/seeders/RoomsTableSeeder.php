@@ -21,12 +21,30 @@ class RoomsTableSeeder extends Seeder
 
     public function run()
     {
-        for ($i=0; $i<4; $i++)
-        {
-            $room_id = $this->generaterid();
-            DB::table('rooms')->insert([
-                'room_id' => $room_id,
-            ]);
-        }
+        DB::table('rooms')->insert(array(
+            0 =>
+                array(
+                    'id' => 1,
+                    'room_id' => 'F308',
+                ),
+
+            1 =>
+                array(
+                    'id' => 2,
+                    'room_id' => 'F309',
+                ),
+
+            2 =>
+                array(
+                    'id' => 3,
+                    'room_id' => 'F313',
+                ),
+
+            3 =>
+                array(
+                    'id' => 4,
+                    'room_id' => 'F314',
+                ),
+        ));
     }
 }

@@ -33,7 +33,7 @@ class ReservationsTableSeeder extends Seeder
         return $name;
     }
     public function generatecardid() {
-        $name = $this->generateRandomString(rand(7, 15));
+        $name = $this->generateRandomString(rand(5, 10));
         $name = strtolower($name);
         $name = ucfirst($name);
         $name = $name ;

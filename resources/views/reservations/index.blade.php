@@ -23,7 +23,7 @@
             <td>{{$reservations->id}}</td>
             <td>{{$reservations->date}}</td>
             <td>{{$reservations->card_id}}</td>
-            <td>{{$reservations->cid}}</td>
+            <td>{{$reservations->room->room_id}}</td>
             <td>{{$reservations->start_at}}</td>
             <td>{{$reservations->end_of}}</td>
             <td>
@@ -41,10 +41,9 @@
                 @csrf <!-- CSRF = Cross-Site Request Forgery-->
                 @method("delete")
                 <input type="submit" value="刪除"/>
-            </form>
+                </form>
             </td>
-
-      </tr>
+        </tr>
     @endforeach
         </table>
     </DIV>
