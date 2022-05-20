@@ -8,9 +8,10 @@
     <img src="https://www.lhu.edu.tw/about/images/logo.jpg" width="200"><br>
     <a href="{{ route('reservations.create') }}">新增借教室名單</a><br>
     <img src="https://m1.ntsu.edu.tw/Preview/images/VC.jpg" width="50">
-    <a href="{{ route('rooms.index') }}">教室名單</a><br>
-    <a href="{{ route('reservations.cid') }}">F309借用狀況</a><br>
-    <a href="{{ route('reservations.index') }}">所有借教室名單</a><br>
+    <a href="{{ route('rooms.index') }}">教室名單</a>
+    <a href="{{ route('reservations.cid') }}">F309借用狀況</a>
+    <a href="{{ route('reservations.index') }}">所有借教室名單</a>
+    <a href="{{ route('user.sign-up') }}">管理員後台</a>
     </body>
 </DIV>
 <script src="script.js" async></script>

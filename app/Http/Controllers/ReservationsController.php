@@ -116,6 +116,12 @@ class ReservationsController extends Controller
         return redirect('reservations');
     }
 
+    public function admin()
+    {
+        $rooms = room::all()->sortBy('id');
+        return view('reservations.admin') -> with(['rooms'=>$rooms]);
+    }
+
     public function cid()
     {
         $reservations = reservation::cid()->get();
