@@ -78,8 +78,8 @@
                     <td>{{$reservations->date}}</td>
                     <td>{{$reservations->card_id}}</td>
                     <td>{{$reservations->room->room_id}}</td>
-                    <td>{{$reservations->start_at}}</td>
-                    <td>{{$reservations->end_of}}</td>
+                    <td>{{$reservations->lesson->lesson_id}}</td>
+                    <td>{{$reservations->lesson_end->lesson_id}}</td>
                     <td>
                         <a href="reservations/{{$reservations->id}}">
                             詳細

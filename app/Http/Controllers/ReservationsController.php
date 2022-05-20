@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\reservation;
 use App\Models\room;
+use App\Models\lesson;
 use Illuminate\Http\Request;
 
 class ReservationsController extends Controller
@@ -27,7 +28,8 @@ class ReservationsController extends Controller
     public function create()
     {
         $rooms = room::all()->sortBy('id');
-        return view('reservations.create')->with(['rooms'=>$rooms]);
+        $lessons = lesson::all()->sortBy('id');
+        return view('reservations.create')->with(['rooms'=>$rooms, 'lessons'=>$lessons]);
     }
 
     /**
@@ -114,12 +116,6 @@ class ReservationsController extends Controller
         $reservations=reservation::findOrFail($id);
         $reservations->delete();
         return redirect('reservations');
-    }
-
-    public function admin()
-    {
-        $rooms = room::all()->sortBy('id');
-        return view('reservations.admin') -> with(['rooms'=>$rooms]);
     }
 
     public function cid()

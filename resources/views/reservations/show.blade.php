@@ -12,8 +12,8 @@
                     <th>日期</th>
                     <th>學生證卡號</th>
                     <th>教室編號</th>
-                    <th>借用時間</th>
-                    <th>結束時間</th>
+                    <th>借用節次</th>
+                    <th>結束節次</th>
                     <th>備註</th>
                     <th>建立時間</th>
                     <th>編輯時間</th>
@@ -22,9 +22,9 @@
                     <td>{{$reservations->id}}</td>
                     <td>{{$reservations->date}}</td>
                     <td>{{$reservations->card_id}}</td>
-                    <td>{{$reservations->cid}}</td>
-                    <td>{{$reservations->start_at}}</td>
-                    <td>{{$reservations->end_of}}</td>
+                    <td>{{$reservations->room->room_id}}</td>
+                    <td>{{$reservations->lesson->lesson_id}}</td>
+                    <td>{{$reservations->lesson_end->lesson_id}}</td>
                     <td>{{$reservations->memo}}</td>
                     <td>{{$reservations->created_at}}</td>
                     <td>{{$reservations->updated_at}}</td>

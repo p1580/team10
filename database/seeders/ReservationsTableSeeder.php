@@ -42,8 +42,13 @@ class ReservationsTableSeeder extends Seeder
     public function generatecid() {
         $positions = rand(1, 4);
         return $positions;
-
     }
+
+    public function generatelesson() {
+        $positions = rand(1, 9);
+        return $positions;
+    }
+
 
     public function run()
     {
@@ -51,10 +56,12 @@ class ReservationsTableSeeder extends Seeder
         {
             $card_id = $this->generatecardid();
             $cid = $this->generatecid();
+            $lesson = $this->generatelesson();
             $random_datetime = Carbon::now()->subMinutes(rand(1,55));
             DB::table('reservations')->insert([
                 'card_id' => $card_id,
                 'cid' => $cid,
+                'start_at' => $lesson,
                 'created_at' => $random_datetime,
                 'updated_at' => $random_datetime
             ]);

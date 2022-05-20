@@ -20,7 +20,6 @@ Route::get('/', function() {
 });
 
 Route::get('reservations/cid', [ReservationsController::class, 'cid'])->name('reservations.cid');
-Route::get('reservations/admin', [ReservationsController::class, 'admin'])->name('reservations.admin');
 Route::resource("reservations",ReservationsController::class);
 Route::resource("rooms",RoomsController::class);
 

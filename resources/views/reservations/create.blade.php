@@ -12,7 +12,9 @@
                 <tr style="background-color:greenyellow;">
                 <tr>
                     <td>日期</td>
-                    <td><input type="date" id="date" name="date"></td>
+                    <?php
+                    echo "Today is " . date("Y-m-d") . "<br>";
+                    ?>
                 </tr>
                 <tr>
                     <td>學生證卡號</td>
@@ -29,12 +31,24 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>借用時間</td>
-                    <td><input type="time" id="start_at" name="start_at"></td>
+                    <td>借用節次</td>
+                    <td>
+                        <select name="start_at" required>
+                            @foreach($lessons as $lesson)
+                                <option value="{{ $lesson->id }}">{{ $lesson->lesson_id }}</option>
+                            @endforeach
+                        </select>
+                    </td>
                 </tr>
                 <tr>
                     <td>結束時間</td>
-                    <td><input type="time" id="end_of" name="end_of"></td>
+                    <td>
+                        <select name="end_of" required>
+                            @foreach($lessons as $lesson)
+                                <option value="{{ $lesson->id }}">{{ $lesson->lesson_id }}</option>
+                            @endforeach
+                        </select>
+                    </td>
                 </tr>
                 <tr>
                     <td>備註</td>

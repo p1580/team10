@@ -31,4 +31,14 @@ class reservation extends Model
     {
         return $this->belongsTo('App\Models\room', 'cid', 'id');
     }
+
+    public function lesson()
+    {
+        return $this->belongsTo('App\Models\lesson', 'start_at', 'id');
+    }
+
+    public function lesson_end()
+    {
+        return $this->belongsTo('App\Models\lesson', 'end_of', 'id');
+    }
 }

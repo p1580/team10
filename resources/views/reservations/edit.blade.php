@@ -38,7 +38,17 @@
                 </tr>
                 <tr>
                     <td>借用時間</td>
-                    <td><input type="time" name="start_at" value="{{ $reservations->start_at }}"/></td>
+                    <td>
+                        <select name="start_at" required>
+                            @foreach ($lessons as $lesson)
+                                @if ($lesson->id == $reservations->start_at)
+                                    <option value="{{ $lesson->id }}" selected>{{ $lesson->lesson_id }}</option>
+                                @else
+                                    <option value="{{ $lesson->id }}">{{ $lesson->lesson_id }}</option>
+                                @endif
+                            @endforeach
+                        </select>
+                    </td>
                 </tr>
                 <tr>
                     <td>結束時間</td>
