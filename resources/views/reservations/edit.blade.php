@@ -37,7 +37,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>借用時間</td>
+                    <td>開始節次</td>
                     <td>
                         <select name="start_at" required>
                             @foreach ($lessons as $lesson)
@@ -51,8 +51,18 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>結束時間</td>
-                    <td><input type="time" name="end_of" value="{{ $reservations->end_of }}"/></td>
+                    <td>結束節次</td>
+                    <td>
+                    <select name="end_of" required>
+                        @foreach ($lessons as $lesson)
+                            @if ($lesson->id == $reservations->end_of)
+                                <option value="{{ $lesson->id }}" selected>{{ $lesson->lesson_id }}</option>
+                            @else
+                                <option value="{{ $lesson->id }}">{{ $lesson->lesson_id }}</option>
+                            @endif
+                        @endforeach
+                    </select>
+                    </td>
                 </tr>
                 <tr>
                     <td>備註</td>
