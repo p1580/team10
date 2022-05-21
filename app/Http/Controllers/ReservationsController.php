@@ -82,7 +82,8 @@ class ReservationsController extends Controller
     {
         $reservations = reservation::findOrFail($id);
         $rooms = room::all()->sortBy('id');
-        return view('reservations.edit') -> with(['reservations'=>$reservations, 'rooms'=>$rooms]);
+        $lessons = lesson::all()->sortBy('id');
+        return view('reservations.edit') -> with(['reservations'=>$reservations, 'rooms'=>$rooms, 'lessons'=>$lessons]);
     }
 
     /**
