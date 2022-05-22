@@ -15,7 +15,7 @@ class CreateReservationsTable extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
-            $table->string('date',6)->default('2021-11-21')->comment('日期');
+            $table->string('date',20)->default('2021-11-21')->comment('日期');
             $table->string('card_id')->comment('學生證卡號');
             $table->string('cid')->comment('教室編號');
             $table->string('start_at')->comment('借用節次');
