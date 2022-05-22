@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('title', '新增教室表單')
-<title>顯示單筆資料</title>
+<title>顯示單筆借用資料</title>
 @section('reservation_contents')
     <DIV style="text-align:center;">
         <h1>顯示單一類型資料</h1>
@@ -10,7 +10,7 @@
             <div style="text-align:center;"><tr style="background-color:greenyellow;">
                     <th>編號</th>
                     <th>日期</th>
-                    <th>學生證卡號</th>
+                    <th>學號</th>
                     <th>教室編號</th>
                     <th>借用節次</th>
                     <th>結束節次</th>

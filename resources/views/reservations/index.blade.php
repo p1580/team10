@@ -59,7 +59,7 @@
             <tr style="background-color:greenyellow;">
                 <th>編號</th>
                 <th>日期</th>
-                <th>學生證卡號</th>
+                <th>學號</th>
                 <th>教室編號</th>
                 <th>借用時間</th>
                 <th>結束時間</th>

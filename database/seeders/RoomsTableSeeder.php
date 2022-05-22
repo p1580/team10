@@ -26,24 +26,28 @@ class RoomsTableSeeder extends Seeder
                 array(
                     'id' => 1,
                     'room_id' => 'F308',
+                    'room_type' => '微處理機實驗室',
                 ),
 
             1 =>
                 array(
                     'id' => 2,
                     'room_id' => 'F309',
+                    'room_type' => '人工智慧/物聯網聯合實驗室',
                 ),
 
             2 =>
                 array(
                     'id' => 3,
                     'room_id' => 'F313',
+                    'room_type' => '程式設計多媒體實驗室',
                 ),
 
             3 =>
                 array(
                     'id' => 4,
                     'room_id' => 'F314',
+                    'room_type' => '網路工程實驗室',
                 ),
         ));
     }

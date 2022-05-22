@@ -12,12 +12,18 @@
                 <tr style="background-color:greenyellow;">
                 <tr>
                     <td>日期</td>
+                    <td><input type="date" name="thisday"/></td>
                     <?php
-                    echo "Today is " . date("Y-m-d") . "<br>";
+                    $today = date('Y-m-d') ;
+                    $thisday = $thisday;
+                    if(strtotime($today)>strtotime($thisday))
+                        echo '今天已過20號喔!';
+                    else
+                        echo '還沒到20號喔!';
                     ?>
                 </tr>
                 <tr>
-                    <td>學生證卡號</td>
+                    <td>學號</td>
                     <td><input type="text" name="card_id"/></td>
                 </tr>
                 <tr>

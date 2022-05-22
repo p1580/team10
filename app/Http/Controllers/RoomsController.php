@@ -28,6 +28,7 @@ class RoomsController extends Controller
     public function create()
     {
         $rooms = room::all()->sortBy('id');
+        return view('rooms.create')->with(['rooms'=>$rooms]);
     }
 
     /**

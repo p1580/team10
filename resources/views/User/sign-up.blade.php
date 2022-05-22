@@ -3,7 +3,7 @@
 @section('title', '新增教室表單')
 <title>註冊會員</title>
 @section('reservation_contents')
-    <form id="form1" method="post" action="" align="center"
+    <form id="form1" method="post" action="" align="center">
     <div class="login_form">
         <div class="login_title">註冊</div>
         <div class="login_label">帳號</div>

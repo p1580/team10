@@ -19,7 +19,7 @@
                     <td><input type="date" name="date" value="{{ $reservations->date }}"maxlength="10" size="10" required/></td>
                 </tr>
                 <tr>
-                    <td>學生證卡號</td>
+                    <td>學號</td>
                     <td>{{ $reservations->card_id }}</td>
                 </tr>
                 <tr>

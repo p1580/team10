@@ -1,0 +1,57 @@
+//註冊登入表單
+.login_form{
+    width: $loginFormWidth;
+    margin: auto;
+
+.login_title{
+    margin-top: 15px;
+    margin-bottom: 30px;
+    font-size: $loginTitleFont;
+    font-weight: 600;
+    text-align: center;
+}
+
+.login_label{
+    font-size: $formMainFont;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.login_textbox{
+    font-size: $formTextBoxTextFont;
+    line-height: $formTextBoxBorderFont;
+    margin-bottom: 20px;
+.form_textbox{
+    padding-left: 12px;
+    width: 100%;
+}
+}
+
+.login_error {
+    font-size: $formTextBoxTextFont;
+}
+
+.btn_group{
+    text-align: right;
+.btn_login{
+    font-size: $formMainFont;
+    height: 40px;
+    width: 120px;
+    color: $textColor;
+    box-shadow: none;
+    border-radius: 3px;
+    border-width: 0;
+}
+}
+}
+
+
+.background_white {
+    min-height: calc(100vh - #{$mainTitleHeight});
+    background: $BackWhiteColor;
+}
+
+.background_white2 {
+    min-height: calc(100vh - #{$mainTitleHeight});
+    background: $BackWhiteColor2;
+}

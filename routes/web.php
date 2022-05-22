@@ -28,8 +28,8 @@ Route::group(['prefix' => 'user'], function(){
     Route::group(['prefix' => 'auth'], function(){
         Route::get('/sign-up', [UserAuthController::class, 'signUpPage'])->name('user.sign-up');
         Route::post('/sign-up', 'UserAuthController@signUpProcess');
-        Route::get('/sign-in', 'UserAuthController@signInPage');
-        Route::post('/sign-in', 'UserAuthController@signInProcess');
+        Route::get('/sign-in', [UserAuthController::class, 'signInPage'])->name('user.sign-in');
+        Route::post('/sign-in', [UserAuthController::class, 'signInProcess']);
         Route::get('/sign-out', 'UserAuthController@signOut');
     });
 });
