@@ -12,15 +12,7 @@
                 <tr style="background-color:greenyellow;">
                 <tr>
                     <td>日期</td>
-                    <td><input type="date" name="thisday"/></td>
-                    <?php
-                    $today = date('Y-m-d') ;
-                    $thisday = $thisday;
-                    if(strtotime($today)>strtotime($thisday))
-                        echo '今天已過20號喔!';
-                    else
-                        echo '還沒到20號喔!';
-                    ?>
+                    <td><input type="date" name="date"/></td>
                 </tr>
                 <tr>
                     <td>學號</td>
