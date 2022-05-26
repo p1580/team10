@@ -11,7 +11,6 @@
     <a href="{{ route('rooms.index') }}">教室名單</a>
     <a href="{{ route('reservations.cid') }}">F309借用狀況</a>
     <a href="{{ route('reservations.index') }}">所有借教室名單</a>
-    <a href="{{ route('user.sign-in') }}">管理員後台</a>
     <div id="show_time">
         <script>
             //這裡程式碼多了幾行，但是不會延遲顯示，速度比較好，格式可以自定義，是理想的時間顯示
