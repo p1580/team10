@@ -44,6 +44,7 @@ class RoomsController extends Controller
         room::create(
             [
                 'room_id' => $rooms_id,
+                'room_type' => $room_type,
             ]
         );
         return redirect('rooms');

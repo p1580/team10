@@ -16,7 +16,7 @@ class ReservationsController extends Controller
      */
     public function index()
     {
-        $reservations = reservation::all()->sortByDesc('cid');
+        $reservations = reservation::all()->sortBy('id');
         return view('reservations.index')->with(['reservations'=>$reservations]);
     }
 

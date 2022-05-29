@@ -22,6 +22,16 @@ class ReservationsTableSeeder extends Seeder
         }
         return $randomString;
     }
+    public function generateRandomNum($length = 10) {
+        $characters = '1234567890';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
+    }
+
     public function generateRandomName() {
         $first_name = $this->generateRandomString(rand(2, 15));
         $first_name = strtolower($first_name);
@@ -32,12 +42,11 @@ class ReservationsTableSeeder extends Seeder
         $name = $first_name . " ". $last_name;
         return $name;
     }
+
     public function generatecardid() {
-        $name = $this->generateRandomString(rand(5, 10));
-        $name = strtolower($name);
-        $name = ucfirst($name);
-        $name = $name ;
-        return $name;
+        $name = $this->generateRandomNum(rand(8, 8));
+        $name1 = "D" . "10" . $name;
+        return $name1;
     }
     public function generatecid() {
         $positions = rand(1, 4);
@@ -45,10 +54,14 @@ class ReservationsTableSeeder extends Seeder
     }
 
     public function generatelesson() {
-        $positions = rand(1, 9);
+        $positions = rand(1, 4);
         return $positions;
     }
 
+    public function generatelessonend() {
+        $positions = rand(5, 9);
+        return $positions;
+    }
 
     public function run()
     {
@@ -56,12 +69,14 @@ class ReservationsTableSeeder extends Seeder
         {
             $card_id = $this->generatecardid();
             $cid = $this->generatecid();
-            $lesson = $this->generatelesson();
+            $lesson_start = $this->generatelesson();
+            $lesson_end = $this->generatelessonend();
             $random_datetime = Carbon::now()->subMinutes(rand(1,55));
             DB::table('reservations')->insert([
                 'card_id' => $card_id,
                 'cid' => $cid,
-                'start_at' => $lesson,
+                'start_at' => $lesson_start,
+                'end_of' => $lesson_end,
                 'created_at' => $random_datetime,
                 'updated_at' => $random_datetime
             ]);

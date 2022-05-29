@@ -4,7 +4,7 @@
 
 @section('reservation_contents')
     <DIV style="text-align:center;">
-        <h1>借教室的編輯表單</h1>
+        <h1>借用教室記錄編輯表單</h1>
         <a href="{{ route('reservations.index') }}">所有借教室名單</a>
         <form method="post" action="/reservations/{{ $reservations->id}}">
             @csrf

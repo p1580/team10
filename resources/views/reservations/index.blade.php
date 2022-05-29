@@ -4,8 +4,7 @@
 <title>借教室表單</title>
 @section('reservation_contents')
     <DIV style="text-align:center;">
-        <h0>借教室的名單</h0>
-        <a href="{{ route('reservations.index') }}">所有借教室名單</a><br>
+        <h1>借教室的名單</h1></br>
 
         搜尋:<input type="search" class="light-table-filter" data-table="order-table" placeholder="請輸入關鍵字">
         <script>(function(document) {
